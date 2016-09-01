@@ -3,6 +3,16 @@
 \usepackage{amsfonts}
 %\usepackage{a4wide}
 \usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+\newcommand{\llc}{\mathcal{C}}
+
+
 \textwidth 6.0in \oddsidemargin 0.0in
 
 \begin{document}
@@ -25,8 +35,21 @@ Shuai Wei
 
 Show that $\mathcal{C}$ is a $\lambda$-system.
 
-\vspace{3 mm}
 
-
+\begin{proof}
+	We will show $\llc$ satisfies the definition of $\lambda$-system.
+	\begin{enumerate}[(1)]
+		\item $\Omega \in \llc$ by property (i).
+		\item If $A, B \in \llc$ and $A \subset B$, then $B\setminus A = B \cap A^c = (B^c \sqcup A)^c$. \\
+			$B^c \in \llc$ by property (ii), and then $(B^c \sqcup A) \subset \llc$ by property (iii) since $B^c \cap A = \emptyset$. \\
+		So $B\setminus A = (B^c \sqcup A)^c \in \llc$. 
+		\item 
+		Let $A_n \in \llc, n\geq 1$ and $A_1 \subset A_2 \subset A_3 \subset ...$.\\
+		Define $B_1 = A_1 \in \llc$ and $B_n = A_n \setminus A_{n-1} $ for $n \geq 2$.\\
+		Then $B_n \in \llc$ by (2) and $B_j \cap B_k = \emptyset$.\\
+		So $\bigcup_{n=1}^{\infty}A_n = \bigsqcup_{n=1}^{\infty}B_n \in \llc$ by property (iii).
+	\end{enumerate}
+	Thus, $\llc$ is a $\lambda$-system.
+\end{proof}
 
 \end{document}
