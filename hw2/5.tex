@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+\newcommand{\lls}{\mathcal{S}}
+\newcommand{\bbp}{\mathbb{P}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\lld}{\mathcal{D}}
+\newcommand{\lla}{\mathcal{A}}
+\newcommand{\llc}{\mathcal{C}}
+\newcommand{\llf}{\mathcal{F}}
+
+\textwidth 6.0in \oddsidemargin 0.0in
+
+\begin{document}
+
+\vspace{3 mm}
+
+
+
+\noindent \textbf{Problem 5} (Resnick, pg. 63 Problem 1) Let $\Omega$ be a nonempty set, and let $\mathcal{F}_{0}$ be the collection of all subsets such that either $A$ or $A^{c}$ is finite.
+
+\vspace{2 mm}
+
+\noindent Define, for each $A \in \mathcal{F}_{0}$, the set function $\mathbb{P}$, where
+\begin{eqnarray*} \mathbb{P}(A) = \left\{
+                                    \begin{array}{ll}
+                                      0, & \hbox{if $A$ is finite;} \\
+                                      1, & \hbox{if $A^{c}$ is finite.}
+                                    \end{array}
+                                  \right. \end{eqnarray*}
+
+\vspace{2 mm}
+
+\noindent (a) If $\Omega$ is countably infinite, show $\mathbb{P}$ is additive on $\mathcal{F}_{0}$, but not countably additive.
+
+\vspace{2 mm}
+
+\noindent (b) If $\Omega$ is uncountable, show $\mathbb{P}$ is countably additive on $\mathcal{F}_{0}$.
+
+
+
+\begin{proof} 
+	$ $\newline
+	Let $\{A_k\}_{k\geq 1} \subset \llf_0$ be pairwise disjoint.\\
+	We claim there is at most one $A_k$ in $\{A_k\}_{k=1}^{\infty}$ satisfying that $A_k^c$ is finite.\\
+	Suppose there are disjoint sets $A_k$ and $A_j$ satisfying that both of $A_k^c$ and $A_j^c$ are finite.\\
+	Then $A_k \cap A_j = \emptyset$ and 
+	\begin{equation}\label{111} 
+		\bbp(A_k \cap A_j) = 0.\\
+	\end{equation}
+	We also have $(A_k)^c \cup (A_j)^c = (A_k \cap A_j)^c $ is finite by assumption.\\
+	So $\bbp (A_k \cap A_j) = 1$, which is contradicted by (\ref{111}).\\
+	Thus, there is at most one $A_k$ in $\{A_k\}_{k=1}^n$ satisfying that $A_k^c$ is finite.
+
+\begin{enumerate}[(a)]
+	\item
+		\begin{enumerate}[(1)]
+		\item
+		Consider finite subsets $\{A_k\}_{k=1}^n$ of $\llf_0$.
+		\begin{enumerate}[(i)]
+			\item If $A_k$ is finite for $1 \leq k \leq n$ , $\cup_{k=1}^n A_k$ is finite.\\
+				Then $\bbp(A_k) = 0$, for $1 \leq k\leq n$ and $\bbp(\cup_{k=1}^n A_k) = 0.$\\
+				So $\sum_{k=1}^n \bbp (A_k) = 0 = \bbp(\cup_{k=1}^n A_k)$.
+			\item
+			Assume there exists the unique $i \in \bbn, 1\leq i \leq n$ such that $A_i^c$ is finite.\\
+			Then $\bbp(A_i) = 1$ and $\bbp(A_j) = 0$ for $j \neq i, 1 \leq j \leq n$.\\
+			So $\sum_{i=1}^{n}\bbp(A_i) = 1.$ \\
+			Morevoer, $(\cup_{k=1}^n A_k)^c  = \cap_{k=1}^n A_k^c \subset A_i^c $.\\
+            Then $(\cup_{k=1}^n A_k)^c$ is finite, and $\bbp(\cup_{k=1}^n A_k) = 1 = \sum_{i=1}^{n}\bbp(A_i).$ 
+			\end{enumerate}
+        Thus, $\bbp$ is additive on $\llf_0$ when $\Omega$ is countably infinite.
+		\item
+		Consider countable many subsets $\{A_k\}_{k\geq 1}$ of $\llf_0$.\\
+			If $A_k$ is finite for all $k \geq 1$, then $\bbp(A_k) = 0$. \\
+			So $\sum_{k=1}^{\infty} \bbp (A_k) = 0$. \\
+				However, $(\cup_{k=1}^{\infty} A_k)^c$ can be finite. \\
+				For example, let $\Omega = \bbn$ and $A_k = k$ for $k \geq 1$, then $A_k$\rq s are disjoint,  and $(\cup_{k=1}^{\infty}{A_k})^c = ({ \cup_{k=1}^{\infty} }k)^c =(\bbn)^c = \emptyset$. So $\cup_{k=1}^{\infty}{A_k} \in \llf_o$, but $\bbp(\cup_{k=1}^{\infty}{A_k}) = 1 \neq \sum_{k=1}^{\infty} \bbp (A_k) $.\\
+		Thus, $\bbp$ is not countably additive when $\Omega$ is countably infinite.
+		\end{enumerate}
+	\item
+    	Just consider countable many subsets $\{A_k\}_{k\geq 1}$ of $\llf_0$.
+		\begin{enumerate}[(1)]
+			\item If $A_k$ is finite for all $k \geq 1$ , $\cup_{k=1}^{\infty} A_k$ is countably infinite.\\
+				Then $\bbp(A_k) = 0, k \geq 1$.\\
+				So $\sum_{k=1}^n \bbp (A_k) = 0$.\\
+				Besides, $(\cup_{k=1}^{\infty} A_k)^c = \Omega\setminus(\cup_{k=1}^{\infty} A_k)$ is uncountably infinite since $\Omega$ is uncountable.\\
+				So both $\cup_{k=1}^{\infty} A_k$ and $(\cup_{k=1}^{\infty} A_k)$ are infinite.\\
+				As a result, when $A_k$ is finite for all $k \geq 1$, $\cup_{k=1}^{\infty} A_k \not\in \llf_0$. 
+			\item 
+			Assume there exists the unique $i \in \bbn, i \geq 1$ such that $A_i^c$ is finite.\\
+            Then $\bbp(A_i) = 1$ and $\bbp(A_j) = 0$ for $j \neq i, j \geq 1$.\\
+            So $\sum_{i=1}^{\infty}\bbp(A_i) = 1.$ \\
+			Morevoer, $(\cup_{k=1}^{\infty} A_k)^c  = \cap_{k=1}^{\infty} A_k^c \subset A_i^c $.\\
+            Then $(\cup_{k=1}^{\infty} A_k)^c$ is finite, and $\bbp(\cup_{k=1}^{\infty} A_k) = 1 = \sum_{i=1}^{\infty}\bbp(A_i).$ 
+		\end{enumerate}
+        Thus, $\bbp$ is countably additive on $\llf_0$ when $\Omega$ is uncountable.
+	\end{enumerate}
+	\end{proof}
+
+
+\end{document}

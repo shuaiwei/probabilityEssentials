@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+\newcommand{\lls}{\mathcal{S}}
+\newcommand{\bbp}{\mathbb{P}}
+
+\textwidth 6.0in \oddsidemargin 0.0in
+
+\begin{document}
+
+\vspace{3 mm}
+
+\noindent \textbf{Problem 3} (Jacod and Protter, pg. 46 Problem 7.17) Suppose a distribution function $F$ is given by
+\begin{eqnarray*} F(x) = \frac{1}{4}\mathbf{1}_{[0, \infty)}(x) + \frac{1}{2}\mathbf{1}_{[1,\infty)}(x) + \frac{1}{4}\mathbf{1}_{[2,\infty)}(x). \end{eqnarray*}  Let $\mathbb{P}$ be given by
+		\begin{eqnarray*} \mathbb{P}((-\infty, x]) = F(x), ~~~~~~~ x \in \mathbb{R}. \end{eqnarray*}  Find the probabilities of the following events:  $A = (-1/2, 1/2)$; $B = (-1/2, 3/2)$; $C = (2/3, 5/2)$; $D = [0,2)$; $E = (3,\infty)$.
+
+\vspace{2 mm}
+\noindent \textbf{Solution.}\\
+Based on the Corollary 7.1 from Jacod\rq s textbook, 
+\begin{enumerate}[(1)]
+	\item 
+		$$\bbp(A) = \bbp((-1/2,1/2)) = F((1/2)^-) - F(-1/2).$$
+		\begin{align*}
+		F((1/2)^-) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}((1/2)^-) + \frac{1}{2}\mathbf{1}_{[1,\infty)}((1/2)^-) + \frac{1}{4}\mathbf{1}_{[2,\infty)}((1/2)^-) \\
+				 &	= 1/4+ 0+ 0  = 1/4,
+		\end{align*}
+		and
+		\begin{align*}
+        F(-1/2) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}(-1/2) + \frac{1}{2}\mathbf{1}_{[1,\infty)}(-1/2) + \frac{1}{4}\mathbf{1}_{[2,\infty)}(-1/2) \\
+        			 &= 0 + 0 + 0 = 0.
+        \end{align*}
+        So
+        $$\bbp(A) = 1/4 - 0 = 1/4.$$
+	\item
+		$$\bbp(B) = \bbp((-1/2,3/2)) = F((3/2)^-) - F(-1/2).$$
+		\begin{align*}
+		F((3/2)^-) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}((3/2)^-) + \frac{1}{2}\mathbf{1}_{[1,\infty)}((3/2)^-) + \frac{1}{4}\mathbf{1}_{[2,\infty)}((3/2)^-)- \\
+			       &= 1/4+ 1/2+ 0  = 3/4,
+		\end{align*}
+		and
+		\begin{align*}
+        	F(-1/2) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}(-1/2) + \frac{1}{2}\mathbf{1}_{[1,\infty)}(-1/2) + \frac{1}{4}\mathbf{1}_{[2,\infty)}(-1/2) \\
+        			&= 0 + 0 + 0 = 0.
+        \end{align*}
+        So
+        $$\bbp(B) = 3/4 - 0 = 3/4.$$
+	\item
+		$$\bbp(C) = \bbp((3/2,5/2)) = F((5/2)^-) - F(3/2).$$
+		\begin{align*}
+			F((5/2)^-) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}((5/2)^-) + \frac{1}{2}\mathbf{1}_{[1,\infty)}((5/2)^-) + \frac{1}{4}\mathbf{1}_{[2,\infty)}((5/2)^-) \\
+					   &= 1/4+ 1/2+ 1/4  = 1,
+		\end{align*}
+		and
+		\begin{align*}
+        	F(3/2) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}(3/2) + \frac{1}{2}\mathbf{1}_{[1,\infty)}(3/2) + \frac{1}{4}\mathbf{1}_{[2,\infty)}(3/2) \\
+        		   &= 1/4 + 1/2 + 0 = 3/4.
+        \end{align*}
+        So
+        $$\bbp(C) = 1 - 3/4 = 1/4.$$
+	\item
+		$$\bbp(D) = \bbp([0,2)) = F(2^-) - F(0^-).$$
+		\begin{align*}
+			F(2^-) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}(2^-) + \frac{1}{2}\mathbf{1}_{[1,\infty)}(2^-) + \frac{1}{4}\mathbf{1}_{[2,\infty)}(2^-) \\
+				   &= 1/4+ 1/2+ 0  = 3/4,
+		\end{align*}
+		and
+		\begin{align*}
+        	F(0^-) &=  \frac{1}{4}\mathbf{1}_{[0, \infty)}(0^-) + \frac{1}{2}\mathbf{1}_{[1,\infty)}(0^-) + \frac{1}{4}\mathbf{1}_{[2,\infty)}(0^-) \\
+        		   &= 0 + 0 + 0 = 0.
+        \end{align*}
+        So
+        $$\bbp(D) = 3/4 - 0 =3/4.$$
+	\item
+		$$\bbp(E) = \bbp((3,\infty)) = F(\infty) - F(3) = 1 - F(3).$$
+		$$F(3) \geq F(5/2) = 1,$$ since $F$ is monotone increasing and
+		$$F(3) \leq 1$$ since $0\leq F(x) \leq 1, x \in R$.\\
+		So $$F(3) = 1.$$
+		Thus $$\bbp(E) = 1 - F(3) = 0.$$
+
+\end{enumerate}	
+
+
+\end{document}
+

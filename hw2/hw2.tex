@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\textwidth 6.0in \oddsidemargin 0.0in
+
+\begin{document}
+
+\begin{center}
+
+\textbf{Homework 2, MATH 9010}
+
+Due on Thursday, September 8
+
+\end{center}
+
+\vspace{3 mm}
+
+\noindent \textbf{Problem 1} Suppose $\mathcal{C}$ is a collection of subsets of $\Omega$ that satisfies the following properties:  (i) $\Omega \in \mathcal{C}$; (ii) if $A \in \mathcal{C}$, then $A^{c} \in \mathcal{C}$; (iii) If $\{A_{i}\}_{i = 1}^{\infty}$ is a collection of disjoint subsets in $\mathcal{C}$, then $\cup_{i=1}^{\infty}A_{i} \in \mathcal{C}$.
+
+\vspace{2 mm}
+
+Show that $\mathcal{C}$ is a $\lambda$-system.
+
+\vspace{3 mm}
+
+\noindent \textbf{Problem 2} Consider the semialgebra $\mathcal{S} := \{(a,b]; 0 \leq a \leq b \leq 1\}$ of $\Omega = (0,1]$.  Show that if $\{a_{k}\}_{k \geq 1}$ and $\{b_{k}\}_{k \geq 1}$ satisfy
+\begin{eqnarray*} 0 \leq a_{n} < b_{n} = a_{n+1} < b_{n+1} < 1 \end{eqnarray*} for each $n \geq 1$, then
+\begin{eqnarray*} \bigcup_{n=1}^{\infty}(a_{n}, b_{n}] \end{eqnarray*} cannot be a member of $\mathcal{S}$.  \textbf{Note:} This will be much more instructive after you read the construction of Lebesgue measure on $(0,1]$ in Section 2.5 of Resnick's text.
+
+\vspace{3 mm}
+
+\noindent \textbf{Problem 3} (Jacod and Protter, pg. 46 Problem 7.17) Suppose a distribution function $F$ is given by
+\begin{eqnarray*} F(x) = \frac{1}{4}\mathbf{1}_{[0, \infty)}(x) + \frac{1}{2}\mathbf{1}_{[1,\infty)}(x) + \frac{1}{4}\mathbf{1}_{[2,\infty)}(x). \end{eqnarray*}  Let $\mathbb{P}$ be given by
+\begin{eqnarray*} \mathbb{P}((-\infty, x]) = F(x), ~~~~~~~ x \in \mathbb{R}. \end{eqnarray*}  Find the probabilities of the following events:  $A = (-1/2, 1/2)$; $B = (-1/2, 3/2)$; $C = (2/3, 5/2)$; $D = [0,2)$; $E = (3,\infty)$.
+
+\vspace{2 mm}
+
+\noindent \textbf{Problem 4} (Jacod and Protter, page 45 Problem 7.14) Let $\{A_{k}\}_{k \geq 1}$ be a sequence of null events, i.e. events where $\mathbb{P}(A_{k}) = 0$ for each $k \geq 1$.  Show that $\cup_{k=1}^{\infty}A_{k}$ is also a null event.
+
+\vspace{2 mm}
+
+\noindent \textbf{Problem 5} (Resnick, pg. 63 Problem 1) Let $\Omega$ be a nonempty set, and let $\mathcal{F}_{0}$ be the collection of all subsets such that either $A$ or $A^{c}$ is finite.
+
+\vspace{2 mm}
+
+\noindent Define, for each $A \in \mathcal{F}_{0}$, the set function $\mathbb{P}$, where
+\begin{eqnarray*} \mathbb{P}(A) = \left\{
+                                    \begin{array}{ll}
+                                      0, & \hbox{if $A$ is finite;} \\
+                                      1, & \hbox{if $A^{c}$ is finite.}
+                                    \end{array}
+                                  \right. \end{eqnarray*}
+
+\vspace{2 mm}
+
+\noindent (a) If $\Omega$ is countably infinite, show $\mathbb{P}$ is additive on $\mathcal{F}_{0}$, but not countably additive.
+
+\vspace{2 mm}
+
+\noindent (b) If $\Omega$ is uncountable, show $\mathbb{P}$ is countably additive on $\mathcal{F}_{0}$.
+
+\vspace{2 mm}
+
+\noindent \textbf{Problem 6} (Resnick, page 25 Problem 34) Suppose $\mathcal{B}$ is a $\sigma$-algebra of subsets of $\Omega$, and suppose $A \notin B$.  Show that $\sigma(\mathcal{B} \cup \{A\})$, the smallest $\sigma$-algebra containing both $\mathcal{B}$ and $A$,, consists of sets of the form
+\begin{eqnarray*} (A \cap B) \cup (A^{c} \cap B^{'}), ~~~~~~ B, B^{'} \in \mathcal{B}. \end{eqnarray*}
+
+\vspace{2 mm}
+
+\noindent \textbf{Problem 7} (Resnick, page 63 Problem 4) Suppose $\mathbb{P}$ is a probability measure on a $\sigma$-algebra $\mathcal{B}$ and suppose $A \notin \mathcal{B}$.  Let $\mathcal{B}_{1} := \sigma(\mathcal{B} \cup \{A\})$ and show that $\mathbb{P}$ has an extension to a probability measure $\mathbb{P}_{1}$ on $\mathcal{B}_{1}$ (Do this without applying an extension theorem).
+
+
+\end{document} 
+

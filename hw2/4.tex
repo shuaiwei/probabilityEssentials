@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+\newcommand{\lls}{\mathcal{S}}
+\newcommand{\bbp}{\mathbb{P}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\lld}{\mathcal{D}}
+\newcommand{\lla}{\mathcal{A}}
+\newcommand{\llc}{\mathcal{C}}
+
+\textwidth 6.0in \oddsidemargin 0.0in
+
+\begin{document}
+
+\vspace{3 mm}
+
+\noindent \textbf{Problem 4} (Jacod and Protter, page 45 Problem 7.14) Let $\{A_{k}\}_{k \geq 1}$ be a sequence of null events, i.e. events where $\mathbb{P}(A_{k}) = 0$ for     each $k \geq 1$.  Show that $\cup_{k=1}^{\infty}A_{k}$ is also a null event.
+
+\begin{proof}
+ 	$ $\newline
+	Let $\Omega$ be sample space and $\lla$ be the $\sigma$-algebra containg $\{A_{k}\}_{k \geq 1}$.\\
+	Since $\{A_{k}\}_{k \geq 1}$ be a sequence of null events, \\
+	there exists $\{B_{k}\}_{k \geq 1} \subset \lla$ such that $A_k \subset B_k$ and $\bbp(B_k) = 0$ for $k \geq 1$.\\
+	Then $\cup_{k=1}^{\infty} A_k \subset \cup_{k=1}^{\infty} B_k$.\\
+	Since $B_k \in \lla, k\geq 1$ and $\lla$ is a $\sigma$-algebra, $\cup_{k=1}^{\infty} B_k \in \lla$.\\
+	Then $\bbp(\cup_{k=1}^{\infty}B_k) \leq \sum_{k=1}^{\infty}\bbp(B_k) = \sum_{k=1}^{\infty}0 = 0 $.\\
+	Thus, $\bbp({\cup_{k=1}^{\infty} A_k}) \leq \bbp({\cup_{k=1}^{\infty} B_k})$ by the monotonicity of probability measure.
+\end{proof}
+
+
+\end{document}
