@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+\newcommand{\llc}{\mathcal{C}}
+\newcommand{\llb}{\mathcal{B}}
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+
+\textwidth 6.0in \oddsidemargin 0.0in
+
+\begin{document}
+
+\begin{center}
+
+\textbf{Homework 3, MATH 9010}
+
+Due on Thursday, September 15\\
+
+Shuai Wei
+
+\end{center}
+
+\vspace{3 mm}
+
+\noindent \textbf{Problem 1} Let $(\Omega, \llb, P) = \Big(\left(\left.0,1\right]\right.,\llb\big((\left. 0,1\right]\big),\lambda\Big)$ where $\lambda$ is Lebesgue measure. Define
+
+\begin{align*}
+	X_1(\omega) &= 0, \forall \omega \in \Omega,\\
+	X_2(\omega) &= 1_{\{1/2\}}(\omega),\\
+	X_3(\omega) &= 1_{\bbq}(\omega)
+\end{align*}
+where $\bbq \in \left(\left.0,1\right]\right.$ are rational numbers in $\left(\left.0,1\right]\right.$. Note 
+$$ P[X_1 = X_2 = X_3 = 0] = 1$$
+and give 
+$$ \sigma(X_i),~~~~	i = 1,2,3.$$
+
+\begin{enumerate}
+	\item
+		$X_1(\omega) = 0, \forall \omega \in \Omega$.\\
+		Note $X_1$ has range  0 , then $X^{-1}_{1}(\{0\}) = \emptyset$.\\
+		So $\sigma(X_1) = \sigma(\emptyset, \Omega)= \{\emptyset, \Omega\}$.\\
+	\item 
+		$X_2(\omega) = 1_{\{1/2\}}(\omega)$.\\
+	Note $X_2$ has range $\{0,1\}$, then $X^{-1}_1(\{0\}) = \{(0,1/2)\cup (1/2,1]\}$,$X^{-1}_2(\{1\}) = \{1/2\}$. \\
+	So $\sigma(X_2) = \{(0,1/2)\cup (1/2,1], 1/2, \emptyset, \Omega\}$.
+	\item
+	$X_3(\omega) = 1_{\bbq}(\omega)$.\\
+	Note, $X_3$ has range $\{0,1\}$, then $X^{-1}_1(\{0\}) = \{\bbq\}$, $X^{-1}_1(\{1\}) = \{\bbq^c \cap (0,1]\}$.\\
+	So $\sigma(X_3) = \{\bbq, \bbq^c \cap (0,1], \emptyset, \Omega\}$.\\
+	where $\bbq \in \left(\left.0,1\right]\right.$ are rational numbers in $\left(\left.0,1\right]\right.$.
+\end{enumerate}
+
+
+\end{document}

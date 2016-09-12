@@ -9,6 +9,7 @@
 \usepackage{amsthm,stmaryrd}
 \usepackage[all]{xy}
 \usepackage{hyperref}
+\usepackage{flexisym}
 
 \newcommand{\lls}{\mathcal{S}}
 \newcommand{\bbp}{\mathbb{P}}
@@ -30,11 +31,11 @@
 	Let $\Omega$ be sample space and $\lla$ be the $\sigma$-algebra containg $\{A_{k}\}_{k \geq 1}$.\\
 	Since $\{A_{k}\}_{k \geq 1}$ be a sequence of null events, \\
 	there exists $\{B_{k}\}_{k \geq 1} \subset \lla$ such that $A_k \subset B_k$ and $\bbp(B_k) = 0$ for $k \geq 1$.\\
-	Then $\cup_{k=1}^{\infty} A_k \subset \cup_{k=1}^{\infty} B_k$.\\
-	Since $B_k \in \lla, k\geq 1$ and $\lla$ is a $\sigma$-algebra, $\cup_{k=1}^{\infty} B_k \in \lla$.\\
-	Then $\bbp(\cup_{k=1}^{\infty}B_k) \leq \sum_{k=1}^{\infty}\bbp(B_k) = \sum_{k=1}^{\infty}0 = 0 $.\\
-	Thus, $\bbp({\cup_{k=1}^{\infty} A_k}) \leq \bbp({\cup_{k=1}^{\infty} B_k})$ by the monotonicity of probability measure.
+	Then $\bigcup_{k=1}^{\infty} A_k \subset \bigcup_{k=1}^{\infty} B_k \in \lla$.\\
+	Let $C_1 = B_1, C_k = B_k\setminus \bigcup_{i=1}^{k-1}B_i \in \lla, k\geq 2$, then\\
+	$C_k\textprime s $ are disjoint and $\bbp(C_k) \leq \bbp(B_k) $by the monotonicity of probability measure.\\
+	So $\bbp({\bigcup_{k=1}^{\infty} B_k}) = \bbp({\bigsqcup_{k=1}^{\infty} C_k}) = \sum_{k=1}^{\infty}\bbp(C_k) \leq \sum_{k=1}^{\infty}\bbp(B_k) = \sum_{k=1}^{\infty}0 = 0$.\\ 
+	Since we find $\bigcup_{k=1}^{\infty} B_k$ such that $\bigcup_{k=1}^{\infty} A_k \subset \bigcup_{k=1}^{\infty} B_k$ and $\bbp({\bigcup_{k=1}^{\infty} B_k}) = 0$,\\
+	$\bigcup_{k=1}^{\infty}A_{k}$ is also a null event.
 \end{proof}
-
-
 \end{document}
