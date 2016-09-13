@@ -45,12 +45,25 @@ Shuai Wei
 
 \noindent \textbf{Problem 3} If $X$ is a random variable, so is $|X|$. The converse may be false.\\
 
-\begin{enumerate}
+\begin{enumerate}[(a)]
 	\item
 		\begin{proof}
-
+			$ $\newline
+			Suppose $X: \Omega\to \bbr$, then $X$ is $\llb/\llb(\bbr)-$measurable. \\
+			Let $\pi = |\cdot|$, then $\pi: \bbr \to \bbr$ is a continous function.\\
+			So $\pi\circ X = |X|$ is also $\llb/\llb(\bbr)$-measurable. \\
+			Thus, $|X|$ is a random variable. 
 		\end{proof}
-	\item
+	\item Counterexample:\\
+		Let $A \subset \bbr$ and $A \not\in \llb(\bbr)$.\\
+		Suppose $X:\bbr \to \bbr$.\\
+		Define $X = 1_A - 1_{A^c}$ be a simple funtion.\\
+		Then $X$ is not $\llb(\bbr)/\llb(\bbr)$-measurable since \\
+		for $1 = [1,1] \in \llb(\bbr)$, $X^{1} = A \not\in \llb(\bbr)$.\\
+		However, $|X| = 1_{\bbr}$ is a constant funtion. \\
+		Since constant function is a continous function and continuous function is $\llb(\bbr)/\llb(\bbr)$-measurable,\\
+		$|X|$ is $\llb(\bbr)/\llb(\bbr)$-measurable.
+
 
 \end{enumerate}
 
