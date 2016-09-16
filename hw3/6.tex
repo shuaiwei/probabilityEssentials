@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+\newcommand{\llc}{\mathcal{C}}
+\newcommand{\llb}{\mathcal{B}}
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+
+\textwidth 6.0in \oddsidemargin 0.0in
+\setcounter{page}{6}
+\begin{document}
+
+\noindent \textbf{Problem 6} Suppose $\llb$ is a $\sigma$-field of subsets of $\bbr$. Show $\llb(\bbr) \subset \llb$ iff every real valued continuous function is measurable with respect to $\llb$ and therefore $\llb(\bbr)$ is the smallest $\sigma$-field with respect to which all the continuous functions are measurable.
+\begin{proof}
+	$ $\newline
+	Let $f: \bbr \to \bbr $ be a continuous funtion.\\
+	We claim $f$ is $\llb(\bbr)/\llb(\bbr)$ measurable. \\
+	Let $\llc$ consists of the open sets in $\bbr$.\\
+	Let $B \in \llc$, then $f^{-1}(B) \in \llb(\bbr)$.\\
+	Since $\sigma(\llc) = \llb(\bbr)$, we know $f$ is $\llb(\bbr)/\llb(\bbr)$ measurable.
+	\begin{enumerate}[(a)]
+		\item 
+			Assume continuous function $f$ is measurable with respect to $\llb$. \\
+			We have shown $\forall B \in \llc, f^{-1}(B) \in \llb(\bbr)$ when $f$ is a continuous function.\\
+			Then let $f$ be an identity function, then $\forall B \in \llc$, $f^{-1}(B) = B \in \llb(\bbr)$.\\
+			So $B \in \llb$ since $f$ is measurable with respect to $\llb$.\\
+			Thus, $\llb(\bbr) \subset \llb$.
+		\item
+			Assume $\llb(\bbr) \subset \llb$.\\
+		    Use the symbols above, $f$ is a continuous function , then $\forall B \in \llc, f^{-1}(B) \in \llb(\bbr) \subset \llb$.\\
+		    Since $\llb$ is a $\sigma$-field of subsets of $\bbr$,\\
+		    $f$ is measurable with respect to $\llb$.
+	\end{enumerate}
+	Therefore $\llb(\bbr)$ is the smallest $\sigma$-field with respect to which all the continuous functions are measurable.
+\end{proof}
+
+
+
+\end{document}

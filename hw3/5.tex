@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+\newcommand{\llc}{\mathcal{C}}
+\newcommand{\llb}{\mathcal{B}}
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+
+\textwidth 6.0in \oddsidemargin 0.0in
+\setcounter{page}{5}
+\begin{document}
+
+\noindent \textbf{Problem 5} Suppose $\infty < a \leq b < \infty$. Show that the indicator function $1_{\left.\left(a,b\right.\right]}(x)$ can be approximated by bounded and continuous functions; that is, show that there exist a sequence of contious functions $0 \leq f_n \leq 1$ such that $f_n \to 1_{\left.\left(a,b\right.\right]}$ pointwise.
+
+\begin{proof}
+	$ $ \newline
+	Let
+	\begin{align*}
+		f_n(x) &= n(x-a)1_{\left.\left(a,a+1/n\right.\right]}(x) + 1_{\left.\left(a+1/n,b\right.\right]}(x) - n(x-b-1/n) \left.\left(b,b+1/n\right.\right](x)\\
+			&= 
+			\begin{cases}
+		      	n(x-a), & \text{if}\ x \in \left.\left(a,a+1/n\right.\right],\\
+		      	1, & \text{if}\ x \in \left.\left(a+1/n,b\right.\right],\\
+		      	- n(x-b-1/n), & \text{if}\ x \in \left.\left(b,b+1/n\right.\right].
+		    \end{cases}
+	\end{align*}
+	Then we can find $0 \leq f_n \leq 1$ given $\infty < a \leq b < \infty$.\\
+	$f_n((a+1/n)^{-}) = 1 = f_n((a+1/n)^{+}) = 1 = f_n(a+1/n)$ and $f_n(b^{-}) = 1 = f_n(b^{+}) = 1 = f_n(b)$.\\
+	Namely, $f$ is continuous at point $a+1/n$ and $b$.\\
+	It is obvious that $f$ is also continuous on other points of $\left.\left(a,b\right.\right]$.\\
+	Thus, $f_n$ is continuous on $\left.\left(a,b\right.\right]$.\\
+	Let $x_0 \in \left.\left(a,b\right.\right] $. Then there exists $N \in \bbn$ such that $a+1/n < x_0 \leq b$ as $n \geq N$ .\\	
+	So when $n > N$, $f_n(x_0) = 1$ since $x_0 \in \left.\left(a+1/n,b\right.\right]$ as $n \geq N$. \\
+	So $|f_n(x_0) - 1_{\left.\left(a,b\right.\right]}(x_0)| = 0$ as $n \geq N$.\\
+	Hence, $f_n \to 1_{\left.\left(a,b\right.\right]}$ pointwise.
+
+\end{proof}
+
+
+\end{document}

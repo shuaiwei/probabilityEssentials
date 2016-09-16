@@ -28,24 +28,45 @@
 
 
 \textwidth 6.0in \oddsidemargin 0.0in
-
+\setcounter{page}{4}
 \begin{document}
 
-\begin{center}
-
-\textbf{Homework 3, MATH 9010}
-
-Due on Thursday, September 15\\
-
-Shuai Wei
-
-\end{center}
-
-\vspace{3 mm}
-
 \noindent \textbf{Problem 4} 
-Suppose that ${B_n,n \geq 1}$ is a countable partition of $\Omega$ and define $\llb = \sigma(B_n,n \geq 1)$. Show a function $X: \Omega \mapsto \left.\left(- \infty, \infty\right.\right]$ 
-
-
+Suppose that ${B_n,n \geq 1}$ is a countable partition of $\Omega$ and define $\llb = \sigma(B_n,n \geq 1)$. Show a function $X: \Omega \mapsto \left.\left(- \infty, \infty\right.\right]$ is $\llb$-meaurable iff $X$ is the form \\
+$$ X = \sum_{i=1}^{\infty}c_i1_{B_i},$$
+for constants $\{c_i\}$.(What is $\llb$?)
+\begin{proof}
+	$ $ 
+	\begin{enumerate}[(a)]
+		\item
+			Assume $ X = \sum_{i=1}^{\infty}c_i1_{B_i}$.\\
+			Note the range of $X$ is $\{c_i: i \in \bbn\}$.\\
+			$\forall i \in \bbn, X^{-1}(c_i) = B_i \in \sigma(B_n,n \geq 1)$.\\
+			So $X$ is $\llb$-measurable.
+		\item
+			Assume $X$ is $\llb$-measurable.\\
+			We claim $ \llc = \{\bigsqcup_{i \in I}B_i: I \subset \bbn\} = \llb = \sigma({B_n, n \geq 1})$. \\
+			First we show $\llc$ is a $\sigma$-algebra. 
+			\begin{enumerate}[(a)]
+				\item
+					$\Omega  = \bigsqcup_{\bbn}B_i \in \llc$.
+				\item
+					$\forall I \subset \bbn, \Big(\bigsqcup_{i \in I}B_i\Big)^c = \bigsqcup_{i \in N\setminus I}B_i \in \llc$ since $\Omega = \bigsqcup_{i\in \bbn}B_i$.
+				\item
+					$\forall \{I_i\} \subset \bbn, I_i \cap I_j = \emptyset$, $\bigsqcup_{j \in I_i}B_j \in \llc.$ \\
+					Then $\bigsqcup_{i=1}^{\infty}\bigsqcup_{j \in I_i}B_j =  \bigsqcup_{j \in \sqcup I_i}B_j \in \llc$. 
+			\end{enumerate}
+			Then we can find that $\llc \subset \llb$ and $\{B_n, n \geq 1\} \subset \llc$.\\
+			So $\llb = \sigma({B_n, n \geq 1}) \subset \llc$.\\
+			Thus, $\llb = \llc = \{\bigsqcup_{i \in I}B_i: I \subset \bbn\} $.\\
+			Next, $\forall i \in \bbn$, let $b_i \in B_i \subset \Omega$, suppose $X(b_i) = c_i \in \bbr$.\\
+			Then $X_i^{-1}(c_i) \in \llb$ since $c_i = [c_i,c_i] \subset \llb(\bbr)$ and $X$ is $\llb$-measurable. \\
+			So $X_i^{-1}(c_i) = \bigsqcup_{i \in I_i}B_j$, where $I_i \subset \bbn$.\\
+			Then $B_i \in \bigsqcup_{i \in I_i}B_j$ since $b_i \in B_i$ and $X(b_i) = c_i$. \\
+			Namely $B_i \subset X_i^{-1}(c_i)$. \\
+			Thus, we have $X(b) = c_i,\forall b \in B_i$.\\
+			As a result, we can write $X$ as $X = \sum_{i=1}^{\infty}c_i1_{B_i}$.\\
+	\end{enumerate}
+\end{proof}
 
 \end{document}
