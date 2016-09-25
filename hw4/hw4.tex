@@ -188,6 +188,54 @@ Show
 \end{enumerate}
 
 
+\newpage
+
+\noindent \textbf{Problem 5} Suppose $\{p_k,k \geq 0\}$ is a probability mass function on $\{0,1,...\}$ and define the generating function 
+\[ P(s) = \sum_{k=0}^{\infty}p_ks^k, ~~0 \leq s \leq 1.\]
+Prove using dominated convergence that 
+\[ \frac{d}{ds}P(s) = \sum_{k=1}^{\infty}p_kks^{k-1},~~0\leq s \leq 1, 	\]
+that is, prove differentiation and summation can be interchanged.\\
+
+\begin{proof}
+  Let $X$ be the corresponding random variable. Then $P(X = k) = p_k$.
+
+  \begin{align*}
+  	\frac{d}{ds}P(s) &= \frac{d}{ds}E\big(s^{X}\big) \\
+  					 &= \lim_{t \to s} \frac{E\big(s^{X}\big) - E\big(t^{X}\big)}{s-t} \\
+  					 &= \lim_{t \to s} \frac{E\big(s^{X} - t^{X}\big)}{s-t} \\
+  					 &= \lim_{t \to s} E\left(\frac{s^{X} - t^{X}}{s-t}\right). \\
+  \end{align*}
+  Then we choose a sequence of numbers $\{t_n\}_{n=1}^{\infty}$ such that $t_n \downarrow s$ and $t_n \neq s$.
+  So 
+  \begin{align*}
+	\frac{d}{ds}P(s) &= \lim_{t_n \to s} E\left(\frac{s^{X} - t_n^{X}}{s-t_n}\right) \\
+					&=\lim_{t_n \to s} E(Y_n) 
+  \end{align*}
+  by letting $Y_n = \frac{s^{X} - t_n^{X}}{s-t_n}$.\\
+  Then 	
+  \begin{align*}
+  	 \lim_{n \to \infty}Y_n &=\lim_{n \to \infty} \frac{s^{X} - t_n^{X}}{s-t_n}\\
+  							&= \lim_{n \to \infty} \frac{- (X-1)t_n^{X}}{-1}\\ 
+  							&= \lim_{n \to \infty} (X-1)t_n^{X} \\
+  							&= (X-1)s^X.
+  \end{align*}
+  Let $f(y) = y^X$, then $f'(y) = Xy^{X-1}$.\\
+  By Mean Value Theorem, there exists $\theta \in [t_n,~s]$ such that $f(s) -f(t_n) = (s-t_n)(f'(\theta))$.\\
+  So 
+
+  \begin{align*}
+  	\left| Y_n\right| = \left |\frac{s^X -t_n^X}{s-t_n} \right |  &= \left|f'(\theta)\right| \\
+  											&= \left|X \theta^{X -1}\right| \\
+  											& \leq  Xs^{X-1}.  
+  \end{align*}
+
+ Since $Xs^{X-1}$ is an integrable random variable, by Dominated Convergence Theorem,
+ \[\lim_{t_n \to s} E(Y_n) = E(\lim_{n \to \infty}Y_n) = E\left((X-1)s^X\right)\]
+ Since $\lim_{t_n \to s} E(Y_n) = \frac{d}{ds}P(s)$ and $E\left((X-1)s^X\right) = \sum_{k=1}^{\infty}p_kks^{k-1}$,
+ we have
+ \[ \frac{d}{ds}P(s) = \sum_{k=1}^{\infty}p_kks^{k-1}.\]
+\end{proof}
+
 
 
 
