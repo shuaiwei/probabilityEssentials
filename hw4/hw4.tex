@@ -1,0 +1,198 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+%\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+\usepackage{bbold}
+
+\newcommand{\idca}{\mathbb{1}}
+\newcommand{\llll}{\mathcal{L}} 
+\newcommand{\llc}{\mathcal{C}}
+\newcommand{\llb}{\mathcal{B}}
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+
+\textwidth 6.0in \oddsidemargin 0.0in
+
+\begin{document}
+
+\begin{center}
+
+\textbf{Homework 4, MATH 9010}
+
+Due on Thursday, September 15\\
+
+Shuai Wei
+
+\end{center}
+
+\vspace{3 mm}
+
+\noindent \textbf{Problem 1} Let $X\in \llll^1$ and let $A_n$ be a sequence of events such that $\lim_{n\to \infty}P(A_n) = 0$. Show that $\lim_{n\to \infty}E\{X\idca_{A_n}\}= 0$. \\
+
+\begin{proof}
+Since $X$ is integrable, $|X|$ is also integrable.\\ 
+Then 
+	\[E(|X|)  < \infty.\]
+Let $n \in \bbn$, by Markov inequality, 	
+\[P(|X|=\infty) \leq  P(|X|>n) \leq \frac{E(|X|)}{n} \]	
+Since 
+\[\lim_{n \to \infty}\frac{E(|X|)}{n} = 0,\]
+we have 
+\[P(|X|=\infty) = 0.\]
+So 
+\[E(|X|\idca_{\{|X| = \infty\}})= 0\]
+by what we have shown in class.\\
+Besides,
+\begin{align*}
+  E(|X|\idca_{A_n}) &= E(|X|\idca_{A_n\{|X| = \infty\}}) + E(|X|\idca_{A_n\{|X| < \infty\}}) \\
+			    &\leq E(|X|\idca_{\{|X| = \infty\}}) + E(|X|\idca_{A_n\{|X| < \infty\}}) \\
+  		        &=E(|X|\idca_{A_n\{|X| < \infty\}})
+\end{align*}
+
+There exist $M > 0$ such that
+\[ |X|\idca_{A_n\{|X| < \infty\}} \leq M\idca_{A_n\{|X| < \infty\}} = M\idca_{A_n}. \]
+So 
+\[ E(|X|\idca_{A_n}) \leq E(|X|\idca_{A_n\{|X| < \infty\}}) \leq  M P(A_n). \]
+Then
+\[\lim_{n\to \infty}E\{|X|\idca_{A_n}\} \leq M \lim_{n\to \infty} P(A_n) = 0.\]
+Thus 
+\[\lim_{n\to \infty}E\{|X|\idca_{A_n}\} =0 .\]
+Since 
+\[\lim_{n\to \infty}E\{|X|\idca_{A_n}\} = \lim_{n\to \infty}E\{X^{+}\idca_{A_n}\} + \lim_{n\to \infty}E\{X^{-}\idca_{A_n}\}  = 0, \]
+	we have 
+	\[\lim_{n\to \infty}E\{X^{+}\idca_{A_n}\} = \lim_{n\to \infty}E\{X^{-}\idca_{A_n}\}  = 0\]
+Therefore,
+ \[\lim_{n\to \infty}E\{X\idca_{A_n}\} = \lim_{n\to \infty}E\{X^{+}\idca_{A_n}\} - \lim_{n\to \infty}E\{X^{-}\idca_{A_n}\}  = 0 \]
+
+\end{proof}
+
+\newpage
+
+\noindent \textbf{Problem 2} Suppose $X_n, n \geq 1$ and $X$ are uniformly bounded random; i.e. there exists a constant $K$ such that 
+\[ |X_n| \vee |X| \leq K.\]
+If $X_n \to X$ as $n \to \infty $, show by means of dominated convergence that 
+\[E|X_n-X| \to 0.\]
+\begin{proof}
+  For any $n \in \bbn$,
+  \[|X_n - X| \leq |X_n| + |X| \leq M + M =2M, \]
+  and \\
+  Constant $M$ is integrable since 
+  \[ E(M)= E(M\idca_{\Omega}) = M\times P({\Omega}) =M < \infty.\]
+  Since $X_n \to X$, $X_n - X \to 0$.\\
+  By Dominated Convergence Theorem,
+  \[\lim_{n\to \infty} E(X_n - X) = E(0) = 0.\]
+  Namely,
+  \[E(X_n - X) \to 0.\]
+
+\end{proof}
+\newpage
+
+\noindent \textbf{Problem 3} For $X \geq 0$, let 
+\[X_n^* = \sum_{k=1}^{\infty}\frac{k}{2^n}\idca_{[\frac{k-1}{2^n} \leq X < \frac{k}{2^n}]}.\]
+Show 
+\[ E(X_n^*) \downarrow E(X).\]
+
+\begin{proof}
+  We first show $\{X_n^*\}_{n \geq 1}$ is monotone decreasing.\\
+  For $k,n \in \bbn$ and $k,n\geq 1$, 
+  \begin{align*}
+  	 \left.\left[\frac{k-1}{2^n},\frac{k}{2^n}\right.\right)  &= \left.\left[\frac{k-1}{2^n}, \frac{k-1/2}{2^n}\right)\right. \bigcup \left.\left[\frac{k-1/2}{2^n}, \frac{k}{2^n}\right)\right. \\
+   															 &= \left.\left[\frac{2k-2}{2^{n+1}}, \frac{2k-1}{2^{n+1}}\right)\right. \bigcup \left.\left[\frac{2k-1}{2^{n+1}}, \frac{2k}{2^{n+1}}\right)\right.  
+ \end{align*}
+   	So 
+   	\[ X_n^* = \sum_{k=1}^{\infty}\frac{2k}{2^{n+1}}\idca_{[\frac{2k-2}{2^{n+1}} \leq X < \frac{2k-1}{2^{n+1}}]} + \frac{2k}{2^{n+1}}\idca_{[\frac{2k-1}{2^{n+1}} \leq X < \frac{2k}{2^{n+1}}]}.\]
+  On the other hand,
+  \[ X_{n+1}^* = \sum_{k=1}^{\infty}\frac{2k-1}{2^{n+1}}\idca_{[\frac{2k-2}{2^{n+1}} \leq X < \frac{2k-1}{2^{n+1}}]} + \frac{2k}{2^{n+1}}\idca_{[\frac{2k-1}{2^{n+1}} \leq X < \frac{2k}{2^{n+1}}]}. \]
+Thus,
+	$X_n^* \geq X_{n+1}^*$. \\
+We claim $X_n^* \downarrow X$.\\
+For any $\epsilon > 0$, there exists $N \in \bbz$ such that $\frac{1}{2^N} < \epsilon$.\\
+Then by the definition of $X_N^*$, $X_N^* \geq X$ and so  
+\[|X_N^*-X| = X_N^* -X < \frac{1}{2^N} < \epsilon. \]
+So when $n > N$, $X_n < X_N $ and 
+\[|X_N^*-X| =X_n^* -X < X_N^* -X < \epsilon.\]
+Therefore, $X_n^* \downarrow X$.\\
+Let $Y_n^* = X_1^*-X_n^* \geq 0$, then $Y^*_n$ is monotone increasing.\\
+Then 
+\[Y_n^* \uparrow X_1^*-X.\]
+By the Monotone Convergence Theorem, we have
+\[E(Y_n^*) \uparrow E(X_1^*-X).\]
+Then 
+\[E(X_1^*)-E(X_n^*) \uparrow E(X_1^*)-E(X).\]
+since $E(Y_n^*)=E(X_1^*)-E(X_n^*)$.\\
+As a result, 
+\[E(X_n^*) \downarrow E(X).\]
+
+\end{proof}
+
+\noindent \textbf{Problem 4} Suppose $X$ is a non-negative random variable satisfying 
+\[ P[0 \leq X < \infty] = 1.\]
+Show
+\begin{enumerate}[(a)]
+	\item 
+	  \[ \lim_{n \to \infty } n E\Big( \frac{1}{X}\idca_{[X>n]} \Big)  = 0,\]
+	\item
+	  \[ \lim_{n \to \infty } n^{-1} E\Big( \frac{1}{X}\idca_{[X>n^{-1}]} \Big)  = 0.\]
+\end{enumerate}
+
+\begin{enumerate}[(a)]
+	\item 	
+		\begin{proof}
+			\begin{align*}
+			  0\leq nE\Big( \frac{1}{X}\idca_{[X>n]}\Big) &= n \int_{\idca_{[X>n]}} \frac{1}{X(\omega)}dP(\omega) \\
+		 					  				  			  &= \int_{\idca_{[X>n]}} \frac{n}{X(\omega)}dP(\omega) \\
+			  										      & \leq \int_{\idca_{[X>n]}}dP(\omega) \\
+			  										      &= P(\idca_{[X>n]})
+			\end{align*}
+		\end{proof}
+		So 
+		\[0\leq \lim_{n \to \infty} nE\Big( \frac{1}{X}\idca_{[X>n]}\Big) \leq \lim_{n \to \infty} P(\idca_{[X>n]}) = P[X=\infty] = 1- P[0 \leq X < \infty]  =0.\]
+		Thus 
+		\[\lim_{n \to \infty} nE\Big( \frac{1}{X}\idca_{[X>n]}\Big) = 0. \]
+	\item
+	  \begin{proof}
+	  	$ $\newline
+		When $X = 0, \idca_{[X>n^{-1}]} = 0$, then $\frac{1}{X} \idca_{[X>n^{-1}]} = 0$.\\
+	  	So $n^{-1}E\big(\frac{1}{X} \idca_{[X>n^{-1}]}\big) = 0$. \\
+		When $X \neq 0,~ P(X=0) = 0$.
+		\begin{align*}
+		 0\leq  n^{-1}E\Big(\frac{1}{X} \idca_{[X>n^{-1}]}\Big) &= n^{-1}E\Big(\frac{1}{X} \idca_{[\frac{1}{X}<n]}\Big) \\
+		  												& \leq n^{-1}E\Big(n \idca_{[\frac{1}{X}<n]}\Big)\\
+		  												&= E\Big(\idca_{[\frac{1}{X}<n]}\Big) \\
+		  												&= P(\frac{1}{X}<n) 
+		\end{align*}
+		So 
+	  \[0\leq \lim_{n \to \infty}n^{-1}E\Big(\frac{1}{X} \idca_{[X>n^{-1}]}\Big) \leq \lim_{n \to \infty} P(\frac{1}{X}<n) = P(X=0) = 0. \]
+		Thus,
+		\[\lim_{n \to \infty } n^{-1} E\Big( \frac{1}{X}\idca_{[X>n^{-1}]} \Big)  = 0.\]
+	  \end{proof}
+\end{enumerate}
+
+
+
+
+
+
+
+
+\end{document}
+
