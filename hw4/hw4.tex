@@ -237,7 +237,46 @@ that is, prove differentiation and summation can be interchanged.\\
 \end{proof}
 
 
+\newpage
 
+\noindent \textbf{Problem 6} The Cauthy-Schwarz Inequality is as follows: give two random variables $X$ and $Y$,
+\[E[\left|XY\right|] \leq \sqrt{E\left[\left|X^2\right|\right]}\sqrt{E\left[\left|Y^2\right|\right]}.\]
+Use this inequality to prove the following statement: given a random variable $X$ satisfying $E\left[X^2\right] = 1$, and $E[\left|X\right|] \geq a$ for some $a > 0$, show that for each $\lambda \in [0,1]$,
+\[ P(\left|X\right| \geq \lambda a ) \geq (1-\lambda)^2a^2.\]
+
+\begin{proof}
+	\begin{align*}	
+		0 \leq a(1-\lambda) &= a-a\lambda\\ 
+	  			     &\leq E(|X|) - a\lambda \\
+	  					   &= E(|X| - a \lambda) \\
+	  					   &= E\left((|X|-a\lambda)\idca_{|X|>\lambda a}\right) + E\left((|X|-\lambda a)\idca_{|X| \leq \lambda a}\right) \\
+	  					   &\leq E\left((|X|-a\lambda)\idca_{|X|>\lambda a}\right) \\
+	\end{align*}
+  since $E\left((|X|-\lambda a)\idca_{|X|<\lambda a}\right) \leq 0$.\\
+    Since $|X|-a\lambda \leq  |X|$ when $a,\lambda \geq 0$,
+    \begin{align*}
+		0 \leq a(1-\lambda) & \leq  E[|X|\idca_{|X|>\lambda a}] \\
+	  							   				  	 & \leq \sqrt{E\left(|X|^2\right)} \sqrt{E\left(\left|\idca_{|X|>\lambda a}\right|^2\right)}
+	\end{align*}
+	by Cauthy-Schwarz Inequality.\\
+	Since 
+  	\[P\left(\left|\idca_{|X|>\lambda a}\right|^2 = 1\right) = P(|X|>\lambda a),\]
+  	and
+  	\[P\left(\left|\idca_{|X|>\lambda a}\right|^2 = 0\right) = 1-P(|X|>\lambda a),\]
+  	\[E\left(\left|\idca_{|X|>\lambda a}\right|^2\right) = P(|X|>\lambda a).\]
+  	So 
+  	\[\sqrt{E\left(\left|\idca_{|X|>\lambda a}^2\right|\right)} = \sqrt{P(|X|>\lambda a)}.\]
+	Besides, 
+	\[ E\left(X^2\right) =1.\]
+	Thus,
+	\[0 \leq a(1-\lambda) \leq  \sqrt{P(|X|>\lambda a)}. \]
+	Therefore, 
+	\[P(|X|>\lambda a) \geq (1-\lambda)^2a^2.\]
+
+ \end{proof}
+
+
+ 
 
 
 
